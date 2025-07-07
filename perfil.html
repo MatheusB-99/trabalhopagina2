@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Perfil do Usuário - Loja Tech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container-header">
+      <div class="logo">
+        <div class="logo-linha1">AJX</div>
+        <div class="logo-linha2">AjaxWare</div>
+      </div>
+      <div class="nav-right">
+        <a href="index.html" class="botao-nav">Início</a>
+        <a href="cadastro.html" class="botao-nav">Cadastro</a>
+      </div>
+      <div class="header-icons">
+        <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="perfil">
+      <h2 class="secao">Meu Perfil</h2>
+      <div class="dados-perfil card">
+        <img src="assets/goku.png" alt="Foto do usuário" width="120" />
+        <div>
+          <p><strong>Nome:</strong> João da Silva</p>
+          <p><strong>Email:</strong> joao@email.com</p>
+          <p><strong>Data de Cadastro:</strong> 15/06/2025</p>
+          <button onclick="alert('Funcionalidade de edição em breve!')" class="botao-nav">Editar Perfil</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="carrinho card">
+      <h2 class="secao">Carrinho</h2>
+      <ul id="lista-carrinho" class="lista-carrinho"></ul>
+      <p id="total-itens" style="color: white; text-align: center;"></p>
+    </section>
+
+    <section class="filtros-produtos">
+      <button class="botao-nav" onclick="filtrarProdutos('todos')">Todos</button>
+      <button class="botao-nav" onclick="filtrarProdutos('pc')">PCs</button>
+      <button class="botao-nav" onclick="filtrarProdutos('mouse')">Mouses</button>
+      <button class="botao-nav" onclick="filtrarProdutos('teclado')">Teclados</button>
+      <button class="botao-nav" onclick="filtrarProdutos('memoria')">Memória</button>
+    </section>
+
+    <section class="produtos-container">
+      <div class="produto" data-categoria="pc">
+        <img src="assets/pc.png" alt="Computador Gamer" width="200" />
+        <p>Computador Gamer - R$ 4.999</p>
+        <button class="botao-nav" onclick="adicionarAoCarrinho('Computador Gamer - R$ 4.999')">Adicionar ao Carrinho</button>
+      </div>
+      <div class="produto" data-categoria="mouse">
+        <img src="assets/mouse.png" alt="Mouse Gamer" width="200" />
+        <p>Mouse Gamer - R$ 199</p>
+        <button class="botao-nav" onclick="adicionarAoCarrinho('Mouse Gamer - R$ 199')">Adicionar ao Carrinho</button>
+      </div>
+      <div class="produto" data-categoria="teclado">
+        <img src="assets/teclado.png" alt="Teclado Gamer" width="200" />
+        <p>Teclado Gamer - R$ 199</p>
+        <button class="botao-nav" onclick="adicionarAoCarrinho('Teclado Gamer - R$ 199')">Adicionar ao Carrinho</button>
+      </div>
+      <div class="produto" data-categoria="memoria">
+        <img src="assets/seagate.png" alt="HD Interno" width="200" />
+        <p>HD Interno - R$ 300</p>
+        <button class="botao-nav" onclick="adicionarAoCarrinho('HD Interno - R$ 300')">Adicionar ao Carrinho</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-icons">
+      <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+      <a href="#"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+    </div>
+    <div class="logo-footer">
+      <div class="logo-linha1">AJX</div>
+      <div class="logo-linha2">AjaxWare</div>
+    </div>
+  </footer>
+
+  <script>
+    function filtrarProdutos(categoria) {
+      const produtos = document.querySelectorAll('.produtos-container .produto');
+      produtos.forEach(produto => {
+        produto.style.display = categoria === 'todos' || produto.dataset.categoria === categoria ? 'block' : 'none';
+      });
+    }
+
+    function adicionarAoCarrinho(produto) {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.push(produto);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      atualizarCarrinho();
+    }
+
+    function removerDoCarrinho(index) {
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      carrinho.splice(index, 1);
+      localStorage.setItem('carrinho', JSON.stringify(carrinho));
+      atualizarCarrinho();
+    }
+
+    function atualizarCarrinho() {
+      const lista = document.getElementById('lista-carrinho');
+      const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+      const total = document.getElementById('total-itens');
+      lista.innerHTML = '';
+      carrinho.forEach((item, i) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          ${item} <button onclick="removerDoCarrinho(${i})" class="botao-nav" style="padding: 4px 10px; font-size: 12px;">Remover</button>
+        `;
+        lista.appendChild(li);
+      });
+      total.textContent = `Total de itens: ${carrinho.length}`;
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      filtrarProdutos('todos');
+      atualizarCarrinho();
+    });
+  </script>
+</body>
+</html>

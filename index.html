@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Loja Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="container-header">
+            <div class="logo">
+                <div class="logo-linha1">AJX</div>
+                <div class="logo-linha2">AjaxWare</div>
+            </div>
+            <div class="nav-right">
+                <a href="cadastro.html" class="botao-nav">Cadastro</a>
+                <a href="perfil.html" class="botao-nav">Perfil</a>
+            </div>
+            <div class=" header-icons">
+                <a href=" #">
+                    <i class="fa-brands fa-instagram fa-2x"></i>
+                </a>
+                <a href=" #">
+                    <i class="fa-brands fa-facebook fa-2x"></i>
+                </a>
+                <a href=" #">
+                    <i class="fa-brands fa-whatsapp fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-box">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="text" placeholder="Usuário" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit" class="botao-nav">Entrar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2 class="secao">Promoções</h2>
+            <div class="carrossel-wrapper">
+                <button class="seta seta-esquerda" onclick="scrollCarrossel(-1)">&#10094;</button>
+                <div class="carrossel-container" id="carrossel-container">
+                    <div class="carrossel" id="carrossel-produtos">
+                        <div class="produto">
+                            <img src="assets/pc.png" alt="Computador Gamer" width="200">
+                            <p>Computador Gamer - R$ 4.999</p>
+                            <button onclick="adicionarCarrinho('Computador Gamer')">Adicionar ao Carrinho</button>
+                        </div>
+                        <div class="produto">
+                            <img src="assets/mouse.png" alt="Mouse Gamer" width="200">
+                            <p>Mouse Gamer - R$ 199</p>
+                            <button onclick="adicionarCarrinho('Mouse Gamer')">Adicionar ao Carrinho</button>
+                        </div>
+                        <div class="produto">
+                            <img src="assets/teclado.png" alt="Teclado Gamer" width="200">
+                            <p>Teclado Gamer - R$ 199</p>
+                            <button onclick="adicionarCarrinho('Teclado Gamer')">Adicionar ao Carrinho</button>
+                        </div>
+                        <div class="produto">
+                            <img src="assets/seagate.png" alt="HD Interno" width="200">
+                            <p>HD Interno - R$ 300</p>
+                            <button onclick="adicionarCarrinho('HD Interno')">Adicionar ao Carrinho</button>
+                        </div>
+                        <div class="produto">
+                            <img src="assets/notebook.png" alt="Notebook Dell" width="200">
+                            <p>Notebook Dell G15 - R$ 300</p>
+                            <button onclick="adicionarCarrinho('Notebook Dell')">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="seta seta-direita" onclick="scrollCarrossel(1)">&#10095;</button>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="footer-icons">
+            <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+        </div>
+        <div class="logo-footer">
+            <div class="logo-linha1">AJX</div>
+            <div class="logo-linha2">AjaxWare</div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

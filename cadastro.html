@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cadastro - Loja Tech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="container-header">
+      <div class="logo">
+        <div class="logo-linha1">AJX</div>
+        <div class="logo-linha2">AjaxWare</div>
+      </div>
+      <div class="nav-right">
+        <a href="index.html" class="botao-nav">Início</a>
+        <a href="perfil.html" class="botao-nav">Perfil</a>
+      </div>
+      <div class="header-icons">
+        <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+        <a href="#"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="cadastro-box">
+      <h2>Cadastro de Usuário</h2>
+      <form id="formCadastro">
+        <input type="text" id="nome" placeholder="Nome completo" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="password" id="senha" placeholder="Senha" required />
+        <button type="submit" class="botao-nav">Cadastrar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-icons">
+      <a href="#"><i class="fa-brands fa-instagram fa-2x"></i></a>
+      <a href="#"><i class="fa-brands fa-facebook fa-2x"></i></a>
+      <a href="#"><i class="fa-brands fa-whatsapp fa-2x"></i></a>
+    </div>
+    <div class="logo-footer">
+      <div class="logo-linha1">AJX</div>
+      <div class="logo-linha2">AjaxWare</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('formCadastro').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      alert('Cadastro realizado com sucesso!');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
